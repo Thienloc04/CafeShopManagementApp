@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="CafeShopManagement.ListProductControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CafeShopManagement"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="WhiteSmoke">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Loaded="ScrollViewer_Loaded">
+            <ListView Name="ProductListView" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="1" Margin="5" Padding="10">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <!-- Hình ảnh -->
+                                    <ColumnDefinition Width="*" />
+                                    <!-- Thông tin -->
+                                    <ColumnDefinition Width="100" />
+                                    <!-- Nút -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Hình ảnh sản phẩm -->
+                                <Image Source="{Binding ProImg}" Width="80" Height="80" Stretch="UniformToFill" Grid.Column="0" Margin="5" />
+
+                                <!-- Thông tin sản phẩm -->
+                                <StackPanel Grid.Column="1" Margin="10,0">
+                                    <TextBlock Text="{Binding ProductName}" FontSize="16" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding Price, StringFormat=C}" FontSize="14" Foreground="DarkGreen" />
+                                    <TextBlock Text="Available: " FontSize="12" Foreground="Gray">
+                                        <Run Text="{Binding Quantity}" />
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <!-- Nút Add to Cart -->
+                                <Button x:Name="AddToCart" Content="Add to Cart" Grid.Column="2" Width="80" Margin="10,0" 
+                                        Tag="{Binding}" Click="AddToCart_Click" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

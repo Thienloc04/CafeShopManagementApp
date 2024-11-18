@@ -1,0 +1,24 @@
+﻿<Window x:Class="CafeShopManagement.HomePageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CafeShopManagement"
+        mc:Ignorable="d"
+        Title="HomePageWindow" Height="500" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+
+        <StackPanel HorizontalAlignment="Left" Height="485" VerticalAlignment="Top" Width="196" Background="#FF429787" Margin="0,-2,0,0"/>
+        <Image HorizontalAlignment="Left" Height="108" Margin="48,4,0,0" VerticalAlignment="Top" Width="100" Source="/cafeIcon.png"/>
+        <Label Content="Cafe Shop" HorizontalAlignment="Left" Height="34" Margin="38,102,0,0" VerticalAlignment="Top" Width="119" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="HomePage_btn" Content="Home Page" HorizontalAlignment="Left" Height="52" Margin="11,149,0,0" VerticalAlignment="Top" Width="173" FontSize="12" FontWeight="Bold" Background="#FF429787" Click="HomePage_btn_Click"/>
+        <Button x:Name="ViewCart_btn" Content="Cart" HorizontalAlignment="Left" Height="51" Margin="11,224,0,0" VerticalAlignment="Top" Width="173" FontSize="12" FontWeight="Bold" Background="#FF429787" Click="ViewCart_btn_Click"/>
+        <Button x:Name="History_btn" Content="History" HorizontalAlignment="Left" Height="51" Margin="11,295,0,0" VerticalAlignment="Top" Width="173" FontSize="12" FontWeight="Bold" Background="#FF429787" Click="History_btn_Click"/>
+        <Button x:Name="LogoutBtn" Content="Logout" HorizontalAlignment="Left" Height="51" Margin="38,395,0,0" VerticalAlignment="Top" Width="119" FontSize="12" FontWeight="Bold" Background="#FF429787"/>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="200,0,0,0">
+            <ContentControl x:Name="CustomerPageControl" Width="800" Height="Auto" />
+        </ScrollViewer>
+
+    </Grid>
+</Window>

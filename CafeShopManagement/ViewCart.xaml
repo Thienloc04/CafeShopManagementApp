@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="CafeShopManagement.ViewCart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CafeShopManagement"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="GhostWhite" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- List of Items -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+            <ListView Name="CartListView" Margin="10" HorizontalAlignment="Stretch">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Product Name -->
+                                <TextBlock Text="{Binding ProductName}" Grid.Column="0" VerticalAlignment="Center" FontWeight="Bold" />
+
+                                <!-- Quantity -->
+                                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBox Text="{Binding Quantity}" Width="50" HorizontalAlignment="Center" />
+                                    <Button Content="Update" Margin="5,0,0,0" Tag="{Binding}" Click="UpdateQuantity_Click" />
+                                </StackPanel>
+
+                                <!-- Price -->
+                                <TextBlock Text="{Binding UnitPrice, StringFormat=C}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+                                <!-- Remove Button -->
+                                <Button Content="Remove" Grid.Column="3" Tag="{Binding}" Background="Red" Foreground="White"
+                                    Click="RemoveItem_Click" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+
+        <!-- Total and Checkout -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <TextBlock Text="Total: " VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+            <TextBlock Name="TotalPriceText" Text="0.00" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="DarkGreen" Margin="5,0,10,0"/>
+            <Button Content="Checkout" Width="100" Click="Checkout_Click" Background="Green" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
