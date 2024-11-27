@@ -33,14 +33,16 @@ namespace BLL.Services
             _repo.SaveOrder(order, orderDetails);
         }
 
-        public List<OrderDetail> GetOrderDetails()
+        public List<OrderDetail> GetOrderDetails(int orderId)
         {
-            return _repo.GetAll();
+            return _repo.GetAllOrderDetails(orderId);
         }
 
-        public List<OrderDetail> GetOrdersByUserId(int userId)
+
+
+        public List<Order> GetOrdersByUserId(int userId)
         {
-            return _repo.GetAll().Where(x => x.Order.UserId == userId).ToList(); 
+            return _repo.GetAll().Where(x => x.UserId == userId).ToList(); 
         } 
     }
 }

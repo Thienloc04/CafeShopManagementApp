@@ -26,10 +26,15 @@ namespace DAL.Repositories
             }
         }
 
-        public List<OrderDetail> GetAll()
+        public List<Order> GetAll()
         {
             _context = new();
-            return _context.OrderDetails.Include("Order").Include("Product").ToList();
+            return _context.Orders.ToList();
+        }
+        public List<OrderDetail> GetAllOrderDetails(int orderId)
+        {
+            _context = new();
+            return _context.OrderDetails.Include("Order").Include("Product").Include("Product.Category").Where(x => x.OrderId == orderId).ToList();
         }
 
         public decimal GetTotalIncome()

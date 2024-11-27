@@ -9,16 +9,13 @@
     <Grid>
         <DataGrid x:Name="OrderDataGrid" HorizontalAlignment="Center" Height="280" VerticalAlignment="Center" Width="780" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ordertail ID" Width="80" Binding="{Binding OrderDetailId}"/>
-                <DataGridTextColumn Header="Product name" Width="90" Binding="{Binding Product.ProductName}"/>
-                <DataGridTextColumn Header="Unit Price" Width="70" Binding="{Binding UnitPrice}"/>
-                <DataGridTextColumn Header="Quantity" Width="60" Binding="{Binding Quantity}"/>
-                <DataGridTextColumn Header="Order ID" Width="60" Binding="{Binding Order.OrderId}"/>
-                <DataGridTextColumn Header="Order Date" Width="80" Binding="{Binding Order.OrderDate}"/>
-                <DataGridTextColumn Header="Total Price" Width="80" Binding="{Binding Order.TotalPrice}"/>
-                <DataGridTextColumn Header="Category Name" Width="100" Binding="{Binding Product.Category.CategoryName}"/>
+                <DataGridTextColumn Header="Order ID" Width="80" Binding="{Binding OrderId}"/>
+                <DataGridTextColumn Header="Order Date" Width="80" Binding="{Binding OrderDate}"/>
+                <DataGridTextColumn Header="Total Price" Width="80" Binding="{Binding TotalPrice}"/>
+                
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Your Order History" HorizontalAlignment="Left" Height="39" Margin="83,23,0,0" VerticalAlignment="Top" Width="237" FontWeight="Bold" FontSize="20"/>
+        <Button x:Name="Receipt_btn" Content="RECEIPT" HorizontalAlignment="Left" Height="53" Margin="568,370,0,0" VerticalAlignment="Top" Width="121" Click="Receipt_btn_Click" />
     </Grid>
 </UserControl>
